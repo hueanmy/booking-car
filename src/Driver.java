@@ -5,7 +5,6 @@ public class Driver {
     public String phone;
     public String address;
     public String email;
-    public int rate;
     public String driverLocation;
     public Booking free;
     public Car car;

@@ -81,6 +81,7 @@ public class Main {
         /*Booking information*/
         System.out.println("|-----------------Booking Car Information---------------|");
         System.out.println("|BookingID:" + booking.getBooking_id());
+        System.out.println("|Pickup City:" + " " + booking.getPickup_city());
         System.out.println("|Pickup Location: " + " " + booking.getPickup_location());
         System.out.println("|Drop Location: " + " " + booking.getDrop_location());
         System.out.println("|______________________");
