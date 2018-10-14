@@ -18,6 +18,7 @@ public class Main {
         String email = sr.nextLine();
 
         //show customer information
+        Customer customer0 = new Customer(1,"hueanmy","12141414","hueanmy","bangliet");
         Customer customer = new Customer();
         customer.setId(customer_id);
         customer.setName(name);
@@ -53,6 +54,7 @@ public class Main {
         System.out.println("Enter Drop Location:");
         String drop_location = sr.nextLine();
 
+        Booking booking0 = new Booking(1, "hcm","hadong","bangliet",customer0,driver1);
         Booking booking = new Booking();
         booking.setBooking_id(booking_id);
         booking.setPickup_city(pickup_city);
@@ -63,14 +65,16 @@ public class Main {
         int rate1 = driver1.getRate(locationStart);
         int rate2 = driver2.getRate(locationStart);
         int rate3 = driver3.getRate(locationStart);
-        int rate = rate1;
-        if(rate<rate2){
-            booking.setDriver(driver2);
+
+        int[] Rate = new int[]{rate1,rate2,rate3};
+        int maxRate = Rate[0];
+        for(int i=1; i<Rate.length;i++){
+           if(maxRate<Rate[i]) maxRate=Rate[i];
         }
-        else if(rate<rate3){
-            booking.setDriver(driver3);
-        }
-        else booking.setDriver(driver1);
+        if(maxRate == rate1 && booking.getFree()==true) booking.setDriver(driver1);
+        else if(maxRate == rate2 && booking.getFree()==true) booking.setDriver(driver2);
+        else if(booking.getFree()==true) booking.setDriver(driver3);
+        else System.out.println("All drivers is busy");
 
         /*Completed Booking*/
         System.out.println("Booking car successfully");

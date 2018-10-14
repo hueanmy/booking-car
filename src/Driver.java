@@ -6,7 +6,6 @@ public class Driver {
     public String address;
     public String email;
     public String driverLocation;
-    public Booking free;
     public Car car;
 
     public Driver(String id, String name, String phone, String address, String email, String driverLocation, Car car) {
@@ -23,14 +22,7 @@ public class Driver {
         return driverLocation.length();
     }
 
-    public void setFree(Booking free) {
-        this.free = free;
-    }
-
     public int getRate(int locationA) {
         return (Math.abs(locationA-convertLocation(driverLocation)));
-    }
-    public Booking getFree() {
-        return free;
     }
 }

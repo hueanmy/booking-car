@@ -6,6 +6,16 @@ public class Booking {
     public Customer customer;
     public Driver driver;
 
+    public Booking(){};
+    public Booking(int booking_id, String pickup_city, String pickup_location, String drop_location, Customer customer, Driver driver){
+        this.booking_id = booking_id;
+        this.pickup_city = pickup_city;
+        this.pickup_location = pickup_location;
+        this.drop_location = drop_location;
+        this.customer = customer;
+        this.driver = driver;
+    };
+
     public void setBooking_id(int booking_id){
         this.booking_id = booking_id;
     }
@@ -50,7 +60,9 @@ public class Booking {
         return driver;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Customer getCustomer() { return customer; }
+    public boolean getFree() {
+        if(getDriver()==null) return true;
+        return false;
     }
 }
